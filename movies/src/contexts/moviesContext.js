@@ -15,7 +15,6 @@ const MoviesContextProvider = (props) => {
             newWatchlist = [...myWatchlist];
         }
         setMyWatchlist(newWatchlist)
-        console.log(myWatchlist);
     }
 
     const addToFavorites = (movie) => {
@@ -32,11 +31,16 @@ const MoviesContextProvider = (props) => {
     const addReview = (movie, review) => {
         setMyReviews({ ...myReviews, [movie.id]: review })
     };
-    console.log(myReviews);
 
     // We will use this function in a later section
     const removeFromFavorites = (movie) => {
         setFavorites(favorites.filter(
+            (mId) => mId !== movie.id
+        ))
+    };
+
+    const removeFromWatchlist = (movie) => {
+        setMyWatchlist(myWatchlist.filter(
             (mId) => mId !== movie.id
         ))
     };
@@ -48,6 +52,7 @@ const MoviesContextProvider = (props) => {
                 myWatchlist,
                 addToFavorites,
                 removeFromFavorites,
+                removeFromWatchlist,
                 addReview,
                 addToWatchList,
             }}
