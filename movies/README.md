@@ -20,7 +20,7 @@ or name.
 
 ## Setup requirements.
 
-`npm install
+`npm install\n
 npm install firebase`
 
 ## API endpoints.
