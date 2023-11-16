@@ -20,10 +20,6 @@ const SiteHeader = ({ history }) => {
     const auth = getAuth();
     const { currUser } = useContext(UsersContext);
 
-    const handleSignIn = () => {
-        navigate("/auth");
-    }
-
     const handleSignOut = async () => {
         try {
             await signOut(auth);
