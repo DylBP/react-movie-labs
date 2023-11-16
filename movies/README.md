@@ -44,4 +44,7 @@ All aspects of the app require authentication. To access any page, a user must h
 ## Independent learning (If relevant)
 
 + Firebase
-+ + Test
+  + Used the Firebase API documentation for getting started with the setup and requirements (https://firebase.google.com/docs/auth/web/start)
+  + Code adaptations made based on requirements for JSX instead of JS as given
++ Pagination
+  + Documentation on pagination from React (https://mui.com/material-ui/react-pagination/)
