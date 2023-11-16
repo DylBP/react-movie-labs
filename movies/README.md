@@ -20,8 +20,10 @@ or name.
 
 ## Setup requirements.
 
+```bash
 `npm install`
 `npm install firebase`
+```
 
 ## API endpoints
 
