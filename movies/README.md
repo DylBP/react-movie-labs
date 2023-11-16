@@ -1,16 +1,16 @@
-# Assignment 1 - ReactJS app.
+# Assignment 1 - ReactJS app
 
 Name: Dylan BP (20099082)
 
 ## Overview.
 
-Assignment 1 for Web App Development 2.
+Assignment 1 for Web App Development 2
 
 The app focuses on data provided by the TMDB API, parses it out, and displays the content back to the user.
 The app uses Firebase authentication, and a variety of different types of API calls. The user can query for data regarding a specific movie, or actor, and can filter by genre
 or name.
 
-### Features.
+### Features
  
 + Firebase Authentication
 + Pagination
@@ -20,31 +20,28 @@ or name.
 
 ## Setup requirements.
 
-`npm install\n
-npm install firebase`
+`npm install`
+`npm install firebase`
 
-## API endpoints.
+## API endpoints
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
++ Upcoming movies - /movie/upcoming/
++ Top rated movies of all time - /movies/toprated
++ Currently playing movies - /movie/top_rated
++ Get movie credits - /movie/:id/credits/ (Movie ID passed to API call for crew)
++ Details for a specific actor - /person/:actor_id (Pass in via the id found from the crew api call)
 
-e.g.
-+ Discover list of movies - discover/movie
-+ Movie details - movie/:id
-+ Movie genres = /genre/movie/list
+## Routing
 
-## Routing.
++ /movies/toprated - displays the top rated movies of all time
++ /movies/current - displays the movies which are currently playing in cinema
++ /auth - the default page which the user is brought to - allows the user to sign up and sign in
++ /actor/:id - the page which displays details for a certain actor, based on id
++ /movies/watchlist - upcoming movies which have been added to a must watch list
 
-[ List the __new routes__ supported by your app and state the associated page.]
+All aspects of the app require authentication. To access any page, a user must have an account (dummy credentials are okay).
 
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
+## Independent learning (If relevant)
 
-[If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
-
-## Independent learning (If relevant).
-
-Itemize the technologies/techniques you researched independently and adopted in your project, 
-i.e. aspects not covered in the lectures/labs. Include the source code filenames that illustrate these 
-(we do not require code excerpts) and provide references to the online resources that helped you (articles/blogs).
++ Firebase
++ + Test
