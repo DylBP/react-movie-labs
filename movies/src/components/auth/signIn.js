@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { signIn } from "./auth";
 import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 function SignInForm() {
   const [email, setEmail] = useState("");
@@ -9,39 +13,73 @@ function SignInForm() {
 
   const handleSubmit = async (event) => {
     try {
-        event.preventDefault();
-        const user = await signIn(email, password);
-        console.log("User signed in: ", user);
-        navigate('/');
+      event.preventDefault();
+      const user = await signIn(email, password);
+      console.log("User signed in: ", user);
+      navigate('/');
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
   };
 
+  const styles = {
+    root: {
+      marginTop: 2,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    form: {
+      width: "50%",
+      "& > * ": {
+        marginTop: 2,
+      },
+    },
+    textField: {
+      width: "40ch",
+    },
+    submit: {
+      marginTop: 2,
+    },
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
+    <Box component="div" sx={styles.root}>
+      <Typography component="h2" variant="h3">
+        Sign In
+      </Typography>
+
+      <form sx={styles.form} onSubmit={handleSubmit} noValidate>
+        <TextField
+          sx={styles.textField}
           type="email"
           id="email"
+          label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
+
+        <TextField
+          sx={styles.textField}
           type="password"
           id="password"
+          label="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </div>
-      <button type="submit">Sign In</button>
-    </form>
+
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          sx={styles.submit}
+        >
+          Sign In
+        </Button>
+      </form>
+    </Box>
   );
 }
 

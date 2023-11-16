@@ -17,6 +17,7 @@ import ToWatchPage from "./pages/toWatchPage";
 import { initializeApp } from "firebase/app";
 import UserProvider from "./components/auth/userProvider";
 import AuthPage from "./pages/authPage";
+import ActorPage from "./pages/actorDetailsPage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -60,6 +61,7 @@ const App = () => {
             <Route path="/movies/current" element={<CurrentMoviePage />} />
             <Route path="/movies/watchlist" element={<ToWatchPage />} />
             <Route path="/auth" element={<AuthPage/>} />
+            <Route path="/actor/:id" element={<ActorPage/>} />
           </Routes>
         </MoviesContextProvider>
         </UserProvider>
