@@ -20,7 +20,7 @@ or name.
 
 ## Setup requirements.
 
-```
+```powershell
 `npm install`
 `npm install firebase`
 ```
