@@ -116,6 +116,7 @@ export const getCurrentMovies = () => {
 };
 
 export const getMovieCredits = ({ queryKey }) => {
+  console.log(queryKey);
   const [, idPart] = queryKey;
   const { id } = idPart;
   return fetch(

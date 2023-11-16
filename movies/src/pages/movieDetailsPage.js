@@ -32,7 +32,7 @@ const MoviePage = (props) => {
 
     return (
         <>
-            {movie || crew ? (
+            {movie && crew ? (
                 <>
                     <PageTemplate movie={movie}>
                         <MovieDetails movie={movie} />

@@ -14,6 +14,22 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import TopRatedMoviePage from "./pages/topRatedMoviesPage";
 import CurrentMoviePage from "./pages/currentMoviesPage";
 import ToWatchPage from "./pages/toWatchPage";
+import { initializeApp } from "firebase/app";
+import UserProvider from "./components/auth/userProvider";
+import AuthPage from "./pages/authPage";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAm9TrGqfVnIP3NBI76gSBAUl_TbODMTyo",
+  authDomain: "wad2-firebase-auth.firebaseapp.com",
+  projectId: "wad2-firebase-auth",
+  storageBucket: "wad2-firebase-auth.appspot.com",
+  messagingSenderId: "247157118296",
+  appId: "1:247157118296:web:8bd7cb19c9d2b190aac12d"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,6 +45,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      <UserProvider>
         <SiteHeader />
         <MoviesContextProvider>
           <Routes>
@@ -42,8 +59,10 @@ const App = () => {
             <Route path="/movies/toprated" element={<TopRatedMoviePage />} />
             <Route path="/movies/current" element={<CurrentMoviePage />} />
             <Route path="/movies/watchlist" element={<ToWatchPage />} />
+            <Route path="/auth" element={<AuthPage/>} />
           </Routes>
         </MoviesContextProvider>
+        </UserProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

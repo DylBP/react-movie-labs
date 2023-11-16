@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -11,10 +11,28 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import UsersContext from "../../contexts/usersContext";
+import { getAuth, signOut } from "firebase/auth";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 const SiteHeader = ({ history }) => {
+    const auth = getAuth();
+    const { currUser } = useContext(UsersContext);
+
+    const handleSignIn = () => {
+        navigate("/auth");
+    }
+
+    const handleSignOut = async () => {
+        try {
+            await signOut(auth);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -40,10 +58,21 @@ const SiteHeader = ({ history }) => {
         setAnchorEl(event.currentTarget);
     };
 
+    if (!currUser) return null;
+
     return (
         <>
             <AppBar position="fixed" color="secondary">
                 <Toolbar>
+                    {currUser ? (
+                        <>
+                            <Typography variant="body1" sx={{ flexGrow: 1 }}>
+                                {currUser.email}
+                            </Typography>
+                        </>
+                    ) : (
+                        null
+                    )}
                     <Typography variant="h4" sx={{ flexGrow: 1 }}>
                         TMDB Client
                     </Typography>
@@ -99,6 +128,9 @@ const SiteHeader = ({ history }) => {
                             ))}
                         </>
                     )}
+                    <Button color="inherit" onClick={handleSignOut}>
+                        Sign Out
+                    </Button>
                 </Toolbar>
             </AppBar>
             <Offset />
