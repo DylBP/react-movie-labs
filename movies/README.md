@@ -20,9 +20,11 @@ or name.
 
 ## Setup requirements.
 
-```powershell
-`npm install`
-`npm install firebase`
+```zsh
+npm install
+npm install firebase
+
+npm start
 ```
 
 ## API endpoints
