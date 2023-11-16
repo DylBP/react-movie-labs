@@ -18,7 +18,7 @@ function LoginForm() {
 
   const styles = {
     root: {
-      marginTop: 2,
+      marginTop: "30px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -30,6 +30,7 @@ function LoginForm() {
       },
     },
     textField: {
+      margin: "10px",
       width: "40ch",
     },
     submit: {

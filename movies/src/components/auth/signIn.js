@@ -36,6 +36,7 @@ function SignInForm() {
       },
     },
     textField: {
+      margin: "10px",
       width: "40ch",
     },
     submit: {
