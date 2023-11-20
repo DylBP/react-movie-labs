@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Assignment 1 - ReactJS app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Name: Dylan BP (20099082)
 
-## Available Scripts
+## Overview.
 
-In the project directory, you can run:
+Assignment 1 for Web App Development 2
 
-### `npm start`
+The app focuses on data provided by the TMDB API, parses it out, and displays the content back to the user.
+The app uses Firebase authentication, and a variety of different types of API calls. The user can query for data regarding a specific movie, or actor, and can filter by genre
+or name.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Features
+ 
++ Firebase Authentication
++ Pagination
++ Static endpoints for upcoming, top rated, and currently playing movies
++ Parameterised endpoints for getting the crew, and actor details
++ A "Watchlist" for upcoming movies, which you can add to and delete from
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup requirements.
 
-### `npm test`
+```zsh
+npm install
+npm install firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm start
+```
 
-### `npm run build`
+## API endpoints
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
++ Upcoming movies - /movie/upcoming/
++ Top rated movies of all time - /movies/toprated
++ Currently playing movies - /movie/top_rated
++ Get movie credits - /movie/:id/credits/ (Movie ID passed to API call for crew)
++ Details for a specific actor - /person/:actor_id (Pass in via the id found from the crew api call)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Routing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
++ /movies/toprated - displays the top rated movies of all time
++ /movies/current - displays the movies which are currently playing in cinema
++ /auth - the default page which the user is brought to - allows the user to sign up and sign in
++ /actor/:id - the page which displays details for a certain actor, based on id
++ /movies/watchlist - upcoming movies which have been added to a must watch list
 
-### `npm run eject`
+All aspects of the app require authentication. To access any page, a user must have an account (dummy credentials are okay).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Independent learning (If relevant)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++ Firebase
+  + Used the Firebase API documentation for getting started with the setup and requirements (https://firebase.google.com/docs/auth/web/start)
+  + Code adaptations made based on requirements for JSX instead of JS as given
++ Pagination
+  + Documentation on pagination from React (https://mui.com/material-ui/react-pagination/)
