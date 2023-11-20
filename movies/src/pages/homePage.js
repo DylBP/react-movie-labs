@@ -25,22 +25,22 @@ const HomePage = (props) => {
   const favorites = movies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
 
-  const handleChange= (event, page) => {
+  const handleChange = (event, page) => {
     setCurrPage(page);
     refetch({ page: currPage });
   }
 
   return (
     <>
-    <Pagination count={10} onChange={handleChange} page={currPage} style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }} variant="outlined" shape="rounded"/>
-    <PageTemplate
-      title="Discover Movies"
-      movies={movies}
-      action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
-      }}
-    />
-    <Pagination count={10} onChange={handleChange} page={currPage} style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }} variant="outlined" shape="rounded"/>
+      <Pagination count={10} onChange={handleChange} page={currPage} style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }} variant="outlined" shape="rounded" />
+      <PageTemplate
+        title="Discover Movies"
+        movies={movies}
+        action={(movie) => {
+          return <AddToFavoritesIcon movie={movie} />
+        }}
+      />
+      <Pagination count={10} onChange={handleChange} page={currPage} style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }} variant="outlined" shape="rounded" />
     </>
   );
 };

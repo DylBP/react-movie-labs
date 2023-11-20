@@ -9,20 +9,22 @@ const UserProvider = ({ children }) => {
 
     useEffect(() => {
         const auth = getAuth();
-        const state = auth.onAuthStateChanged((user) => {
-            if(user) {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user) {
                 setCurrUser(user);
             } else {
                 setCurrUser(null);
                 navigate("/auth");
             }
         });
-        return () => state();
-    }, [])
+
+        // Cleanup function
+        return () => unsubscribe();
+    }, [navigate]); // Include navigate in the dependency array
 
     return (
         <UsersContext.Provider value={{ currUser, setCurrUser }}>
-            { children }
+            {children}
         </UsersContext.Provider>
     );
 };
